@@ -1,0 +1,4 @@
+<div class="wrapper" >
+  <div *ngFor="let item of date" class="dayBtn" (click)="changeDisplayDay('day/' + date.indexOf(item).toString())">{{item | date: 'EEEE'}}</div>
+</div>
+
