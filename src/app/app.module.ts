@@ -5,11 +5,15 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CurrentDayComponent } from './components/current-day/current-day.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { FutureDaysComponent } from './components/future-days/future-days.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CurrentDayComponent
+    CurrentDayComponent,
+    SidebarComponent,
+    FutureDaysComponent
   ],
   imports: [
     BrowserModule,

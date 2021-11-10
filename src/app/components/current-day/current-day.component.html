@@ -10,33 +10,34 @@
       <small *ngIf="locationError">Location Not Found!</small>
     </div>
     <br>
-    <div *ngIf="!weatherNow" class="spinner-border" role="status">
+    <div *ngIf="!hourlyWeatherArray" class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
     </div>
-    <div class="weather" *ngIf="weatherNow">
+    <div class="weather" *ngIf="hourlyWeatherArray">
       <div>{{currentTime | date:"Y. MMMM d, EEEE"}}</div>
-      <div>{{location.name}}, {{location.country}}</div>
-      <h1 id="temperature-main">{{weatherNow.main.temp | number:'1.0-0'}}°C</h1>
-      <div id="temperature-threshold">{{weatherNow.main.temp_min}}°C - {{weatherNow.main.temp_max}}°C</div>
+      <h1 id="temperature-main">{{hourlyWeatherArray[slider.value].temp | number:'1.0-0'}}°C</h1>
       <div>
         <div>
-          <div>
-            Feels like: {{ weatherNow.main.feels_like | number:'1.0-0'}}°C,
-            {{weatherNow.weather[0].main }},
-            {{weatherNow.weather[0].description}}
+          <div class="other-data">
+            Feels like: {{ hourlyWeatherArray[slider.value].feels_like | number:'1.0-0'}}°C
           </div>
           <div>
-            Humidity: {{weatherNow.main.humidity}}%
+            {{hourlyWeatherArray[slider.value].weather[0].main }},
+            {{hourlyWeatherArray[slider.value].weather[0].description}}
+          </div>
+          <div>
+            Humidity: {{hourlyWeatherArray[slider.value].humidity}}%
           </div>
         </div>
       </div>
-      <div class="timeline">
-        <h1>Hourly Forecast</h1>
-        <div class="grid" *ngFor="let item of timeline">
-          <div class="grid-element">{{item.time | date: 'HH:mm'}}</div>
-          <div class="grid-element">{{item.temp | number: '1.0-0'}}°C</div>
-        </div>
+    </div>
+    <div class="slidecontainer">
+      <div class="timestamps">
+        <div *ngFor="let item of timeline">{{item}}:00</div>
       </div>
+      <input type="range" min="1" [max]="24-currentTime.getHours()" [value]="currentTime.getHours()" class="slider"
+             id="myRange" #slider (click)="selectedHour = slider.value">
+      <div>{{slider.value}}</div>
     </div>
   </div>
 </div>

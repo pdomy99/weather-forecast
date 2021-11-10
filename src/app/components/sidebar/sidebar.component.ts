@@ -16,7 +16,6 @@ export class SidebarComponent implements OnInit {
     for (let i = 0; i < 4; i++) {
       this.date.push(new Date())
       this.date[i+1].setHours(this.date[i].getHours() + ((i+1) * 24))
-      console.log(this.date[i])
     }
   }
 
@@ -24,7 +23,8 @@ export class SidebarComponent implements OnInit {
   }
 
   changeDisplayDay(day:string) {
-    this.router.navigate(['/' + day])
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+    this.router.navigate(['/' + day]));
   }
 
 }
