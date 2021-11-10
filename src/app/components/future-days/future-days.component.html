@@ -1,5 +1,6 @@
 <div class="wrapper">
   <div class="main-container">
+    <h1>Weather Forecast</h1>
     <div class="input">
       <p>City:</p>
       <input id="city-input" type="text" #input>
@@ -9,16 +10,34 @@
       <small *ngIf="locationError">Location Not Found!</small>
     </div>
     <br>
-    <div *ngIf="!weatherNow" class="spinner-border" role="status">
+    <div *ngIf="!weatherArray" class="spinner-border" role="status">
       <span class="sr-only">Loading...</span>
+    </div>
+    <div class="weather" *ngIf="weatherArray">
+      <div>{{location.name}}</div>
+      <div>{{currentTime | date:"Y. MMMM d, EEEE"}}</div>
+      <h1 id="temperature-main">{{weatherArray[slider.value].main.temp | number:'1.0-0'}}°C</h1>
+      <div>
+        <div>
+          <div class="other-data">
+            Feels like: {{ weatherArray[slider.value].main.feels_like | number:'1.0-0'}}°C
+          </div>
+          <div>
+            {{weatherArray[slider.value].weather[0].main }},
+            {{weatherArray[slider.value].weather[0].description}}
+          </div>
+          <div>
+            Humidity: {{weatherArray[slider.value].main.humidity}}%
+          </div>
+        </div>
+      </div>
     </div>
     <div class="slidecontainer">
       <div class="timestamps">
-        <div *ngFor="let item of timeline">{{item}}:00</div>
+        <div *ngFor="let item of timeline">{{item.time | date: 'HH:mm'}}</div>
       </div>
-      <input type="range" [min]="currentTime.getHours()" max="23" [value]="currentTime.getHours()" class="slider"
+      <input type="range" min="0" [max]="timeline.length - 1" [value]="currentTime.getHours()" class="slider"
              id="myRange" #slider (click)="selectedHour = slider.value">
     </div>
   </div>
 </div>
-<p>{{date}}</p>
