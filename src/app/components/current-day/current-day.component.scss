@@ -1,0 +1,35 @@
+.wrapper {
+  width: 80vw;
+  margin: auto;
+}
+
+.main-container{
+  width: 60%;
+  padding: 20px;
+  margin: 50px auto;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 3px;
+  border: 0.6px solid #313131;
+}
+
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(24, 4rem);
+
+  h1 {
+    grid-column: 1 / -1;
+  }
+}
+
+.grid {
+  background-color: rgba(235, 255, 255, 0.4);
+}
+
+.grid-element {
+  border: 0.5px solid black;
+}
+
+#temperature-threshold {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
