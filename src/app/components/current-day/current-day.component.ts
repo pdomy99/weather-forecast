@@ -74,9 +74,4 @@ export class CurrentDayComponent implements OnInit {
     }
     this.timeline = timelineTemp;
   }
-
-  consoleLog() {
-    console.log(this.weatherArray[0].temp)
-  }
-
 }

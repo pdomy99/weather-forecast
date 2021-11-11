@@ -5,7 +5,6 @@
       <p>City:</p>
       <input id="city-input" type="text" #input>
       <button class="submit-btn" (click)="city = input.value; selectCity()">Select</button>
-      <button (click)="consoleLog()">Debug</button>
     </div>
     <div class="error-msg">
       <small *ngIf="locationError">Location Not Found!</small>
@@ -39,7 +38,6 @@
       </div>
       <input type="range" min="0" [max]="timeline.length-1" [value]="currentTime.getHours()" class="slider"
              id="myRange" #slider (click)="selectedHour = slider.value">
-<!--      <div>{{slider.value}}</div>-->
     </div>
   </div>
 </div>

@@ -15,12 +15,10 @@
     </div>
     <div *ngIf="weatherArray && timeline">
       <div class="weather" *ngIf="weatherArray">
-        <div>{{location.name}}</div>
-        <div>{{currentTime | date:"Y. MMMM d, EEEE"}}</div>
         <h1 id="temperature-main">{{weatherArray[slider.value].main.temp | number:'1.0-0'}}°C</h1>
-        <div>
+        <div class="other-data">
           <div>
-            <div class="other-data">
+            <div>
               Feels like: {{ weatherArray[slider.value].main.feels_like | number:'1.0-0'}}°C
             </div>
             <div>
@@ -30,6 +28,10 @@
             <div>
               Humidity: {{weatherArray[slider.value].main.humidity}}%
             </div>
+          </div>
+          <div>
+            <div>{{location.name}}</div>
+            <div>{{currentTime | date:"Y. MMMM d, EEEE"}}</div>
           </div>
         </div>
       </div>

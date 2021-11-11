@@ -32,9 +32,17 @@
   justify-content: space-between;
 }
 
+.other-data {
+  font-size: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
 .input {
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
 }
 
 .submit-btn {
@@ -52,10 +60,8 @@
 
 .main-container {
   p {
-    display: flex;
-    justify-content: flex-end;
-    margin-right: 20%;
-    text-align: end;
+    text-align: center;
+    margin-bottom: 8px;
   }
 }
 
@@ -74,4 +80,9 @@ h1 {
 #temperature-threshold {
   margin-top: -20px;
   margin-bottom: 20px;
+}
+
+#temperature-main {
+  margin: 6px;
+  font-size: 60px;
 }
