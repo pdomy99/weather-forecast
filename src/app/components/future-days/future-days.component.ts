@@ -10,13 +10,13 @@ import {ForecastService} from "../../services/forecast.service";
 export class FutureDaysComponent implements OnInit {
 
   selectedHour: any;
-  locationError = false
+  contentLoaded = false;
+  locationError = false;
   city = "";
-  timeline: any = [];
+  timeline: any;
   currentTime = new Date();
-
   location: any;
-  weatherArray: any;
+  weatherArray: any = [];
   dayN: number;
 
 
@@ -47,17 +47,21 @@ export class FutureDaysComponent implements OnInit {
   }
 
   getFutureDayForecast(data: any) {
-    console.log(data)
     this.location = data.city;
     const timelineTemp = []
-
-    this.weatherArray = data.list.slice(this.dayN * 8, 8 + (this.dayN * 8))
-    for (const forecast of data.list.slice(8, 16)) {
-      timelineTemp.push({
-        time: forecast.dt_txt
-      });
+    const weatherTemp:any = []
+    for (const forecast of data.list) {
+      let forecastDate = new Date(forecast.dt_txt).getDate();
+      if (forecastDate == this.currentTime.getDate()) {
+        weatherTemp.push(forecast)
+        timelineTemp.push({
+          time: forecast.dt_txt
+        });
+      }
     }
+    this.weatherArray = weatherTemp;
     this.timeline = timelineTemp;
+    this.contentLoaded = true;
   }
 
 }

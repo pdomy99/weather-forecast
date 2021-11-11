@@ -13,10 +13,6 @@ export class CurrentDayComponent implements OnInit {
   city = "";
   timeline: any = [];
   currentTime = new Date();
-  dayThreshold = ({
-    start: new Date(),
-    end: new Date()
-  });
   location: any;
 
 
@@ -24,9 +20,6 @@ export class CurrentDayComponent implements OnInit {
   weatherArray: any;
 
   constructor(private forecastService: ForecastService) {
-    this.dayThreshold.start.setHours(0, 0, 0);
-    this.dayThreshold.end.setDate(this.dayThreshold.start.getDate()+1);
-    this.dayThreshold.end.setHours(0, 0, 0);
     for (let i = this.currentTime.getHours(); i < 24; i++) {
       this.timeline.push(i)
     }
@@ -72,9 +65,12 @@ export class CurrentDayComponent implements OnInit {
 
     this.weatherArray = data
     for (const forecast of data.list.slice(0, 8)) {
-      timelineTemp.push({
-        time: forecast.dt_txt
-      });
+      let forecastDate = new Date(forecast.dt_txt).getDate();
+      if (forecastDate == this.currentTime.getDate()) {
+        timelineTemp.push({
+          time: forecast.dt_txt
+        });
+      }
     }
     this.timeline = timelineTemp;
   }
