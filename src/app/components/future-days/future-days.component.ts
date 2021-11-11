@@ -10,7 +10,6 @@ import {ForecastService} from "../../services/forecast.service";
 export class FutureDaysComponent implements OnInit {
 
   selectedHour: any;
-  contentLoaded = false;
   locationError = false;
   city = "";
   timeline: any;
@@ -61,7 +60,6 @@ export class FutureDaysComponent implements OnInit {
     }
     this.weatherArray = weatherTemp;
     this.timeline = timelineTemp;
-    this.contentLoaded = true;
   }
 
 }
