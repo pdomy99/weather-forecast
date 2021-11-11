@@ -4,9 +4,8 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Dokumentáció
 ### - Komponensek
-A feladat 3 fő komponensre, és egy service komponensre van osztva.
-2 komponens a mai, és a következő napokat foglalja magába, ahogy az a feladatleírásban is meg volt fogalmazva.
-a harmadik komponens az oldalsó menüsor, ezen történik a navigáció
+A feladat 3 fő komponensre van osztva.
 
-### - ForecastService osztály
-Ez az osztály kommunikál az API-al
+1. A current-weather, a mai időjárást foglalja magába
+2. A future-weather a következő 4 nap időjárását tartalmazza
+3. A sidebar az oldalsáv, az oldalon történő navigációhoz
