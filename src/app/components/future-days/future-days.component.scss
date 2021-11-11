@@ -10,6 +10,10 @@
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 3px;
   border: 0.6px solid #313131;
+  h1 {
+    font-family: "Calibri Light";
+    text-align: center;
+  }
 }
 
 .timeline {
@@ -63,11 +67,6 @@
     text-align: center;
     margin-bottom: 8px;
   }
-}
-
-h1 {
-  font-family: "Calibri Light";
-  text-align: center;
 }
 
 #city-input {

@@ -8,7 +8,6 @@ import {Router} from "@angular/router";
 })
 export class SidebarComponent implements OnInit {
 
-  aDate = new Date
   date: Date[] = [];
 
   constructor(private router: Router) {

@@ -31,12 +31,6 @@ export class FutureDaysComponent implements OnInit {
 
   selectCity() {
     this.locationError = false;
-    this.forecastService.getHourlyForecast(this.city).subscribe(data => {
-        // this.getCurrentDayForecast(data);
-      },
-      error => {
-        this.locationError = true;
-      });
     this.forecastService.getWeatherForecast(this.city).subscribe(data => {
         this.getFutureDayForecast(data);
       },

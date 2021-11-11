@@ -16,10 +16,13 @@
     <div class="weather" *ngIf="weatherArray">
       <div>{{location.name}}</div>
       <div>{{currentTime | date:"Y. MMMM d, EEEE"}}</div>
-      <h1 id="temperature-main">{{weatherArray.list[slider.value].main.temp | number:'1.0-0'}}°C</h1>
-      <div>
+      <h1 id="temperature-main"> {{weatherArray.list[slider.value].main.temp | number:'1.0-0'}}°C</h1>
+      <p id="temperature-threshold">Min/Max: {{weatherArray.list[slider.value].main.temp_min}}°C -
+        {{weatherArray.list[slider.value].main.temp_max}}°C
+      </p>
+      <div class="other-data">
         <div>
-          <div class="other-data">
+          <div>
             Feels like: {{ weatherArray.list[slider.value].main.feels_like | number:'1.0-0'}}°C
           </div>
           <div>
@@ -28,6 +31,14 @@
           </div>
           <div>
             Humidity: {{weatherArray.list[slider.value].main.humidity}}%
+          </div>
+        </div>
+        <div>
+          <div>
+            Wind direction: {{weatherArray.list[slider.value].wind.deg}}°
+          </div>
+          <div>
+            Speed: {{weatherArray.list[slider.value].wind.speed}}°
           </div>
         </div>
       </div>

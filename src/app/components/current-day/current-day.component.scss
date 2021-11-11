@@ -32,7 +32,14 @@
   justify-content: space-between;
 }
 
+.other-data {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 #temperature-threshold {
+  font-size: 12px;
   margin-top: -20px;
   margin-bottom: 20px;
 }
